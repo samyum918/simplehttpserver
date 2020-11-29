@@ -24,10 +24,10 @@ public class HttpConnectionWorkerThread extends Thread {
             inputStream = socket.getInputStream();
             outputStream = socket.getOutputStream();
 
-            int _byte;
-            while( (_byte = inputStream.read()) >= 0) {
-                System.out.print((char) _byte);
-            }
+//            int _byte;
+//            while( (_byte = inputStream.read()) >= 0) {
+//                System.out.print((char) _byte);
+//            }
 
             String html = "<html><head><title>Simple Java HTTP Server</title></head><body><h1>This page served using my Simple Java HTTP Server</h1></body></html>";
 
@@ -44,21 +44,6 @@ public class HttpConnectionWorkerThread extends Thread {
             LOGGER.info("Connection Processing Finished.");
         } catch (IOException e) {
             LOGGER.error("Problem with communication", e);
-        } finally {
-            if(inputStream != null) {
-                try {
-                    inputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            if(outputStream != null) {
-                try {
-                    outputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
 }

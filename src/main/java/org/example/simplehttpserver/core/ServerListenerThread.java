@@ -31,7 +31,6 @@ public class ServerListenerThread extends Thread {
                 HttpConnectionWorkerThread workerThread = new HttpConnectionWorkerThread(socket);
                 workerThread.start();
             }
-
         } catch (IOException e) {
             LOGGER.error("Problem with setting socket", e);
         } finally {
